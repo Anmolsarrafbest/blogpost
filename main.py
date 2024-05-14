@@ -1,5 +1,5 @@
 
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy
 import jinja2 as j
 
@@ -21,10 +21,15 @@ class User(db.Model):
 def logging():
    return render_template("logg.html")
 
+@app.route("/",methods=['POST'])
+def logret():
+   emailid=request.form['email_ID']
+   password=request.form["pass"]
+   res=db.session.query(User).filter_by(User.email==emailid).first
+   return render_template('anmol.html',emailid=emailid,password=password)
+
 if __name__ == '__main__':
   # Run the Flask app
   app.run(
-    host='0.0.0.0',
-    debug=True,
-    port=8080
+    debug=True
   )    
