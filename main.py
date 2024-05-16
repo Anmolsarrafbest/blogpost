@@ -17,6 +17,9 @@ class User(db.Model):
     email=db.Column(db.String, unique=True)
     passward=db.Column(db.String)
 
+class action(db.Model):
+   __tablename__='action'
+    
 @app.route("/",methods=['GET'])
 def logging():
    return render_template("logg.html")
@@ -25,8 +28,15 @@ def logging():
 def logret():
    emailid=request.form['email_ID']
    password=request.form["pass"]
+   username=request.form["username"]
    res=db.session.query(User).filter_by(User.email==emailid).first
-   return render_template('anmol.html',emailid=emailid,password=password)
+   if emailid==res:
+      return render_template('Home.html')
+   else:
+      new_user=User(username=username,email=emailid,passward=password)
+      db.session.add(new_user)
+      db.session.commit()
+      return render_template('anmol.html',emailid=emailid,password=password)
 
 if __name__ == '__main__':
   # Run the Flask app
