@@ -34,15 +34,16 @@ def logret():
    user=request.form["username"]
    res=db.session.query(User).filter(User.email==emailid).first()
    if emailid==res:
-      return render_template('Home.html')
+      return render_template('anmol.html')
    else:
       user_id=generate()
       new_user=User(user_id=user_id,username=user,email=emailid,passward=password)
       db.session.add(new_user)
       db.session.commit()
-      return render_template('anmol.html',username=user)
+      return render_template('Home.html',username=user)
     
-      
+@app.route("/style/style.css",methods=["GET"]):
+   return {{url_for('s')}}   
 
 if __name__ == '__main__':
   # Run the Flask app
