@@ -42,8 +42,8 @@ def logret():
       db.session.commit()
       return render_template('Home.html',username=user)
     
-@app.route("/style/style.css",methods=["GET"]):
-   return {{url_for('s')}}   
+# @app.route("/style/style.css",methods=["GET"]):
+#    return {{url_for('s')}}   
 
 if __name__ == '__main__':
   # Run the Flask app
