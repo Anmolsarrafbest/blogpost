@@ -31,7 +31,13 @@
         <!-- box 4 -->
         <div class="Acoount">
             <div>
-                <p id="firstl">Hello, Sign In</p>
+                <p id="firstl">Hello, 
+                    {% if username==Null %}
+                    <a href=/log>Sign in</a>
+                    {% else %}
+                    {{username}}
+                    {% endif %}
+                </p>
             </div>
             <div >
                 <p id="secondl"><b>Account & Lists</b></p>

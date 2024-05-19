@@ -23,7 +23,7 @@
 .logo{
     height: 50px;
     width: 150px;
-    background-image: url('D:/myprograms/amazon_logo.png');
+    background-image: url('amazon_logo.png');
     background-size: cover;
 }
 
@@ -203,4 +203,10 @@ button{
     height: 200px;
     background-image: url("pc.png");
     background-size:cover;
+}
+
+a{
+    text-decoration: None;
+    color:white
+    
 }
